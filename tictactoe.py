@@ -117,13 +117,12 @@ def winchecker():
 
 def playermove():
     a = int(input("\nSelect the position of your mark: "))
-    try:
+    if a <= 9 and Board[a-1] == "-":
         Board[a-1] = "P"
         comp_board.remove(a-1)
         pass
-    except:
-        print("Please input a valid position for your move.")
-        time.sleep(1)
+    else:
+        print("Please input a valid position.")
         playermove()
 
 
