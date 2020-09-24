@@ -125,13 +125,72 @@ def playermove():
         print("Please input a valid position.")
         playermove()
 
-
 def computermove():
+    for i in range(0,9,3):
+        if Board[i] == Board[i+1] == "C" and Board[i+2] == "-":
+            Board[i+2] = "C"
+            comp_board.remove(i+2)
+            return True
+        elif Board[i+1] == Board[i+2] == "C" and Board[i] == "-":
+            Board[i] = "C"
+            comp_board.remove(i)
+            return True
+        elif Board[i] == Board[i+2] == "C" and Board[i+1] == "-":
+            Board[i+1] = "C"
+            comp_board.remove(i+1)
+            return True
+        else:
+            pass
+    for i in range(3):
+        if Board[i] == Board[i+3] == "C" and Board[i+6] == "-":
+            Board[i+6] = "C"
+            comp_board.remove(i+6)
+            return True
+        elif Board[i] == Board[i+6] == "C" and Board[i+3] == "-":
+            Board[i+3] = "C"
+            comp_board.remove(i+3)
+            return True
+        elif Board[i+3] == Board[i+6] == "C" and Board[i] == "-":
+            Board[i] = "C"
+            comp_board.remove(i)
+            return True
+        else:
+            pass
+    
+    for i in range(0,9,3):
+        if Board[i] == Board[i+1] == "P" and Board[i+2] == "-":
+            Board[i+2] = "C"
+            comp_board.remove(i+2)
+            return True
+        elif Board[i+1] == Board[i+2] == "P" and Board[i] == "-":
+            Board[i] = "C"
+            comp_board.remove(i)
+            return True
+        elif Board[i] == Board[i+2] == "P" and Board[i+1] == "-":
+            Board[i+1] = "C"
+            comp_board.remove(i+1)
+            return True
+        else:
+            pass
+    for i in range(3):
+        if Board[i] == Board[i+3] == "P" and Board[i+6] == "-":
+            Board[i+6] = "C"
+            comp_board.remove(i+6)
+            return True
+        elif Board[i] == Board[i+6] == "P" and Board[i+3] == "-":
+            Board[i+3] = "C"
+            comp_board.remove(i+3)
+            return True
+        elif Board[i+3] == Board[i+6] == "P" and Board[i] == "-":
+            Board[i] = "C"
+            comp_board.remove(i)
+            return True
+        else:
+            pass
     a = random.choice(comp_board)
-    Board[a] = "C"
     comp_board.remove(a)
+    Board[a] = "C"
     pass
-
 
                                                             
 def toss():
